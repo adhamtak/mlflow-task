@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: housing-api-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: housing-api
+  template:
+    metadata:
+      labels:
+        app: housing-api
+    spec:
+      containers:
+        - name: housing-api
+          image: california-housing-api:v1
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8000
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 5
+            periodSeconds: 10
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: housing-api-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: housing-api
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8000

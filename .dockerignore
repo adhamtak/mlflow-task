@@ -1,0 +1,5 @@
+mlops-env/
+mlruns/
+mlruns.db
+artifacts/
+__pycache__/

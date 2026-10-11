@@ -1,0 +1,22 @@
+artifact_path: file:C:/Users/adham/OneDrive/Desktop/MLOps/artifacts/1/models/m-b83dacbacd1e40febed1b999f15feb1a/artifacts
+flavors:
+  python_function:
+    data: model.ubj
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.xgboost
+    python_version: 3.13.2
+  xgboost:
+    code: null
+    data: model.ubj
+    model_class: xgboost.core.Booster
+    model_format: ubj
+    xgb_version: 3.4.1
+mlflow_version: 3.17.0
+model_id: m-b83dacbacd1e40febed1b999f15feb1a
+model_size_bytes: 277193
+model_uuid: m-b83dacbacd1e40febed1b999f15feb1a
+prompts: null
+run_id: 2e3decb7dafe4cccaf6285267d399b9c
+utc_time_created: '2026-10-11 07:57:30.140171'
